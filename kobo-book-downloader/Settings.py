@@ -60,4 +60,7 @@ class Settings:
 			if not os.path.isdir( cacheHome ):
 				cacheHome = home
 
-		return os.path.join( cacheHome, "kobo-book-downloader.json" )
+		configDir = os.path.join( cacheHome, "kobo-book-downloader" )
+		os.makedirs( configDir, exist_ok = True )
+
+		return os.path.join( configDir, "config.json" )
