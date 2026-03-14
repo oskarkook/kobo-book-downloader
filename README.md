@@ -10,6 +10,30 @@ kobo-book-downloader is a command line program. It looks like this:
 
 ## Installation
 
+### Docker
+
+```sh
+docker run -it --rm \
+  -v ~/.config/kobo-book-downloader:/root/.config/kobo-book-downloader \
+  -v ~/Downloads:/books \
+  ghcr.io/oskarkook/kobo-book-downloader:latest \
+  <command>
+```
+
+Replace `<command>` with any command from the Usage section below, using `/books` as the output path.
+
+For example, to download all your books:
+
+```sh
+docker run -it --rm \
+  -v ~/.config/kobo-book-downloader:/root/.config/kobo-book-downloader \
+  -v ./Downloads:/books \
+  ghcr.io/oskarkook/kobo-book-downloader:latest \
+  get /books --all
+```
+
+### Manual
+
 kobo-book-downloader requires [Python 3+](https://www.python.org/). Make sure that you have it installed. You can verify it by running `python --version` from the terminal.
 
 Use Git to clone this repository or [download it](https://github.com/TnS-hun/kobo-book-downloader/archive/master.zip) as a zip. If you downloaded it as a zip then you have to extract it.
